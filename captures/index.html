@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captures — Abdul Rehman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:    #EDEAE3;
+      --paper: #E8E4DC;
+      --ink:   #2C2B28;
+      --muted: #8C8A84;
+      --line:  #D4D0C8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .nav-left, .nav-right { display: flex; gap: 36px; align-items: center; }
+    .nav-link {
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; font-weight: 400; transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--muted); }
+    .nav-link.active { border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+    .nav-center {
+      font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink);
+      text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%);
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 72px 48px 48px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .page-title {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink);
+    }
+    .page-title em { font-style: italic; color: var(--muted); }
+    .page-meta {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 8px;
+    }
+
+    /* ── GRID ── */
+    .grid-section {
+      padding: 56px 48px 80px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    /*
+      ── HOW TO ADD PHOTOS ──
+      Inside each .photo-cell, the structure is:
+        <div class="photo-cell">
+          <div class="photo-frame">
+            <img src="YOUR_IMAGE_URL" alt="caption" />
+          </div>
+          <div class="photo-meta">
+            <span class="photo-num">01</span>
+            <span class="photo-cap">Your caption</span>
+          </div>
+        </div>
+
+      Replace the .photo-ph div with: <img src="..." alt="..." />
+      The image fills the frame automatically.
+    */
+
+    .photo-cell {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-frame {
+      aspect-ratio: 3 / 4;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      position: relative;
+      transition: opacity 0.2s;
+    }
+    .photo-frame:hover { opacity: 0.88; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .photo-ph {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+    }
+    .photo-ph span { font-size: 20px; opacity: 0.2; }
+    .photo-ph p {
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); opacity: 0.45;
+    }
+
+    .photo-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 2px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .photo-num {
+      font-size: 10px; letter-spacing: 0.1em; color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .photo-cap {
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink); font-weight: 400;
+    }
+
+    /* wide cell — spans 2 cols */
+    .photo-cell.wide .photo-frame { aspect-ratio: 16 / 9; }
+    .photo-cell.wide { grid-column: span 2; }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .sf-left { display: flex; align-items: center; gap: 12px; }
+    .sf-back {
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none; transition: color 0.15s;
+    }
+    .sf-back:hover { color: var(--muted); }
+    .sf-copy { font-size: 11px; color: var(--muted); }
+    .sf-tag  { font-size: 11px; color: var(--muted); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 28px; }
+      .page-header { padding: 52px 28px 36px; }
+      .grid-section { padding: 40px 28px 60px; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
+      .photo-cell.wide { grid-column: span 2; }
+      .site-footer { padding: 18px 28px; }
+    }
+    @media (max-width: 560px) {
+      nav { padding: 16px 20px; }
+      .nav-center { font-size: 17px; }
+      .nav-left, .nav-right { gap: 18px; }
+      .page-header { padding: 40px 20px 28px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .grid-section { padding: 28px 20px 48px; }
+      .photo-grid { grid-template-columns: 1fr; gap: 2px; }
+      .photo-cell.wide { grid-column: span 1; }
+      .photo-cell.wide .photo-frame { aspect-ratio: 3/4; }
+      .site-footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-left">
+    <a href="/writing" class="nav-link">Writing</a>
+    <a href="/captures" class="nav-link active">Captures</a>
+  </div>
+  <a href="/" class="nav-center">0xpaf</a>
+  <div class="nav-right">
+    <a href="/about" class="nav-link">About</a>
+    <a href="/contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <h1 class="page-title">Through<br><em>my lens</em></h1>
+  <span class="page-meta">06 captures</span>
+</div>
+
+<!-- ── PHOTO GRID ── -->
+<div class="grid-section">
+  <div class="photo-grid">
+
+    <!-- PHOTO 1 — Portrait -->
+    <div class="photo-cell">
+      <div class="photo-frame">
+        <!--
+          ADD PHOTO:
+          <img src="YOUR_IMAGE_URL" alt="Portrait" />
+        -->
+        <div class="photo-ph"><span>📷</span><p>add photo</p></div>
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">01</span>
+        <span class="photo-cap">Portrait</span>
+      </div>
+    </div>
+
+    <!-- PHOTO 2 — City -->
+    <div class="photo-cell">
+      <div class="photo-frame">
+        <!--
+          ADD PHOTO:
+          <img src="YOUR_IMAGE_URL" alt="City" />
+        -->
+        <div class="photo-ph"><span>🌆</span><p>add photo</p></div>
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">02</span>
+        <span class="photo-cap">City</span>
+      </div>
+    </div>
+
+    <!-- PHOTO 3 — Sky (wide, spans 2 cols) -->
+    <div class="photo-cell wide">
+      <div class="photo-frame">
+        <!--
+          ADD PHOTO:
+          <img src="YOUR_IMAGE_URL" alt="Sky" />
+        -->
+        <div class="photo-ph"><span>🌌</span><p>add photo</p></div>
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">03</span>
+        <span class="photo-cap">Sky</span>
+      </div>
+    </div>
+
+    <!-- PHOTO 4 — Architecture -->
+    <div class="photo-cell">
+      <div class="photo-frame">
+        <!--
+          ADD PHOTO:
+          <img src="YOUR_IMAGE_URL" alt="Architecture" />
+        -->
+        <div class="photo-ph"><span>🏙️</span><p>add photo</p></div>
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">04</span>
+        <span class="photo-cap">Architecture</span>
+      </div>
+    </div>
+
+    <!-- PHOTO 5 — Nature -->
+    <div class="photo-cell">
+      <div class="photo-frame">
+        <!--
+          ADD PHOTO:
+          <img src="YOUR_IMAGE_URL" alt="Nature" />
+        -->
+        <div class="photo-ph"><span>🌿</span><p>add photo</p></div>
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">05</span>
+        <span class="photo-cap">Nature</span>
+      </div>
+    </div>
+
+    <!-- PHOTO 6 — Moment -->
+    <div class="photo-cell">
+      <div class="photo-frame">
+        <!--
+          ADD PHOTO:
+          <img src="YOUR_IMAGE_URL" alt="Moment" />
+        -->
+        <div class="photo-ph"><span>✨</span><p>add photo</p></div>
+      </div>
+      <div class="photo-meta">
+        <span class="photo-num">06</span>
+        <span class="photo-cap">Moment</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="site-footer">
+  <div class="sf-left">
+    <a href="/" class="sf-back">← Back</a>
+    <span class="sf-copy">© 2026 Abdul Rehman</span>
+  </div>
+  
+</div>
+
+</body>
+</html>

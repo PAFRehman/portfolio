@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Abdul Rehman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#EDEAE3; --paper:#E8E4DC; --ink:#2C2B28; --muted:#8C8A84; --line:#D4D0C8; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--bg); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; font-size:13px; line-height:1.75; -webkit-font-smoothing:antialiased; min-height:100vh; }
+
+    nav { display:flex; align-items:center; justify-content:space-between; padding:28px 48px; border-bottom:1px solid var(--line); position:relative; }
+    .nav-left,.nav-right { display:flex; gap:36px; }
+    .nav-link { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); text-decoration:none; font-weight:400; transition:color 0.15s; }
+    .nav-link:hover { color:var(--muted); }
+    .nav-link.active { border-bottom:1px solid var(--ink); padding-bottom:1px; }
+    .nav-center { font-family:'EB Garamond',serif; font-size:22px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink); text-decoration:none; position:absolute; left:50%; transform:translateX(-50%); }
+
+    .contact-wrap {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:calc(100vh - 65px - 60px);
+    }
+
+    /* LEFT — big heading */
+    .contact-left {
+      padding:80px 48px;
+      border-right:1px solid var(--line);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .contact-eyebrow { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:28px; }
+
+    .contact-heading {
+      font-family:'EB Garamond',serif;
+      font-size:clamp(36px,5.5vw,72px);
+      font-weight:400;
+      letter-spacing:-0.025em;
+      line-height:1.05;
+      color:var(--ink);
+      margin-bottom:24px;
+    }
+    .contact-heading em { font-style:italic; color:var(--muted); }
+
+    .contact-sub { font-size:14px; font-weight:300; color:var(--muted); line-height:1.8; max-width:340px; }
+
+    .avail {
+      display:inline-flex; align-items:center; gap:8px;
+      margin-top:48px;
+      font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink);
+    }
+    .avail-dot {
+      width:7px; height:7px; border-radius:50%; background:#22c55e;
+      box-shadow:0 0 0 3px rgba(34,197,94,0.2);
+      animation:pulse 2s ease infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow:0 0 0 3px rgba(34,197,94,0.2); }
+      50%      { box-shadow:0 0 0 6px rgba(34,197,94,0.07); }
+    }
+
+    /* RIGHT — links */
+    .contact-right { padding:80px 64px; }
+
+    .contact-links { display:flex; flex-direction:column; margin-top:80px; }
+
+    .clink {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:22px 0;
+      border-top:1px solid var(--line);
+      text-decoration:none; color:var(--ink);
+      transition:color 0.15s;
+    }
+    .clink:last-child { border-bottom:1px solid var(--line); }
+    .clink:hover { color:var(--muted); }
+
+    .clink-left { display:flex; align-items:center; gap:16px; }
+    .clink-icon { font-size:16px; line-height:1; width:20px; text-align:center; display:flex; align-items:center; justify-content:center; }
+    .clink-name { font-family:'EB Garamond',serif; font-size:20px; font-weight:400; }
+    .clink-handle { font-size:11px; letter-spacing:0.06em; color:var(--muted); margin-left:4px; }
+    .clink-arr { font-size:14px; color:var(--line); transition:color 0.15s; }
+    .clink:hover .clink-arr { color:var(--muted); }
+
+    .site-footer { border-top:1px solid var(--line); padding:20px 48px; display:flex; align-items:center; justify-content:space-between; }
+    .sf-left { display:flex; align-items:center; gap:12px; }
+    .sf-back { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); text-decoration:none; transition:color 0.15s; }
+    .sf-back:hover { color:var(--muted); }
+    .sf-copy { font-size:11px; color:var(--muted); }
+    .sf-tag  { font-size:11px; color:var(--muted); }
+
+    @media (max-width:900px) {
+      nav { padding:20px 28px; }
+      .contact-wrap { grid-template-columns:1fr; }
+      .contact-left { padding:52px 28px 36px; border-right:none; border-bottom:1px solid var(--line); }
+      .contact-right { padding:48px 28px 60px; }
+      .contact-links { margin-top:0; }
+      .site-footer { padding:18px 28px; }
+    }
+    @media (max-width:560px) {
+      nav { padding:16px 20px; }
+      .nav-center { font-size:17px; }
+      .nav-left,.nav-right { gap:18px; }
+      .contact-left { padding:40px 20px 28px; }
+      .contact-right { padding:36px 20px 48px; }
+      .site-footer { padding:16px 20px; flex-direction:column; gap:6px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="/writing" class="nav-link">Writing</a>
+    <a href="/captures" class="nav-link">Captures</a>
+  </div>
+  <a href="/" class="nav-center">0xpaf</a>
+  <div class="nav-right">
+    <a href="/about" class="nav-link">About</a>
+    <a href="/contact" class="nav-link active">Contact</a>
+  </div>
+</nav>
+
+<div class="contact-wrap">
+
+  <!-- LEFT -->
+  <div class="contact-left">
+    <div>
+      <p class="contact-eyebrow">Contact</p>
+      <h1 class="contact-heading">Hit me up<br>for a <em>good<br>conversation</em></h1>
+
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="contact-right">
+    <div class="contact-links">
+
+      <a href="https://twitter.com/0xpaf" class="clink" target="_blank" rel="noopener">
+        <div class="clink-left">
+          <span class="clink-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </span>
+          <span class="clink-name">Twitter</span>
+          <span class="clink-handle">@0xpaf</span>
+        </div>
+        <span class="clink-arr">↗</span>
+      </a>
+
+      <a href="mailto:hello@0xpaf.xyz" class="clink">
+        <div class="clink-left">
+          <span class="clink-icon">✉</span>
+          <span class="clink-name">Mail</span>
+          <span class="clink-handle">hello@0xpaf.xyz</span>
+        </div>
+        <span class="clink-arr">↗</span>
+      </a>
+
+      <a href="https://github.com/0xpaf" class="clink" target="_blank" rel="noopener">
+        <div class="clink-left">
+          <span class="clink-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.75;"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </span>
+          <span class="clink-name">GitHub</span>
+          <span class="clink-handle">github.com/0xpaf</span>
+        </div>
+        <span class="clink-arr">↗</span>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="site-footer">
+  <div class="sf-left">
+    <a href="/" class="sf-back">← Back</a>
+    <span class="sf-copy">© 2026 Abdul Rehman</span>
+  </div>
+  
+</div>
+
+</body>
+</html>

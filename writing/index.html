@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing — Abdul Rehman</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#EDEAE3; --paper:#E8E4DC; --ink:#2C2B28; --muted:#8C8A84; --line:#D4D0C8; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background:var(--bg); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; font-size:13px; line-height:1.75; -webkit-font-smoothing:antialiased; min-height:100vh; }
+
+    nav { display:flex; align-items:center; justify-content:space-between; padding:28px 48px; border-bottom:1px solid var(--line); position:relative; }
+    .nav-left,.nav-right { display:flex; gap:36px; align-items:center; }
+    .nav-link { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); text-decoration:none; font-weight:400; transition:color 0.15s; }
+    .nav-link:hover { color:var(--muted); }
+    .nav-link.active { border-bottom:1px solid var(--ink); padding-bottom:1px; }
+    .nav-center { font-family:'EB Garamond',serif; font-size:22px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink); text-decoration:none; position:absolute; left:50%; transform:translateX(-50%); }
+
+    .page-header { padding:72px 48px 48px; border-bottom:1px solid var(--line); display:flex; align-items:flex-end; justify-content:space-between; }
+    .page-title { font-family:'EB Garamond',serif; font-size:clamp(40px,6vw,72px); font-weight:400; letter-spacing:-0.02em; line-height:1; color:var(--ink); }
+    .page-title em { font-style:italic; color:var(--muted); }
+    .page-meta { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); padding-bottom:8px; }
+
+    .writing-section { padding:0 48px 100px; }
+
+    .thought-row {
+      display:grid;
+      grid-template-columns:80px 1fr 60px;
+      align-items:baseline;
+      gap:32px;
+      padding:28px 0;
+      border-bottom:1px solid var(--line);
+      text-decoration:none;
+      color:inherit;
+    }
+    .thought-row:first-child { border-top:1px solid var(--line); }
+    .thought-row:hover .t-title { color:var(--muted); }
+
+    .t-date { font-size:11px; letter-spacing:0.06em; color:var(--muted); text-transform:uppercase; }
+    .t-body {}
+    .t-title { font-family:'EB Garamond',serif; font-size:22px; font-weight:400; line-height:1.3; color:var(--ink); transition:color 0.15s; margin-bottom:6px; }
+    .t-excerpt { font-size:12px; color:var(--muted); line-height:1.65; }
+    .t-arrow { text-align:right; font-size:15px; color:var(--line); transition:color 0.15s; }
+    .thought-row:hover .t-arrow { color:var(--muted); }
+
+    .site-footer { border-top:1px solid var(--line); padding:20px 48px; display:flex; align-items:center; justify-content:space-between; }
+    .sf-left { display:flex; align-items:center; gap:12px; }
+    .sf-back { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); text-decoration:none; transition:color 0.15s; }
+    .sf-back:hover { color:var(--muted); }
+    .sf-copy { font-size:11px; color:var(--muted); }
+    .sf-tag  { font-size:11px; color:var(--muted); }
+
+    @media (max-width:900px) {
+      nav { padding:20px 28px; }
+      .page-header { padding:52px 28px 36px; }
+      .writing-section { padding:0 28px 60px; }
+      .thought-row { grid-template-columns:64px 1fr; gap:20px; }
+      .t-arrow { display:none; }
+      .site-footer { padding:18px 28px; }
+    }
+    @media (max-width:560px) {
+      nav { padding:16px 20px; }
+      .nav-center { font-size:17px; }
+      .nav-left,.nav-right { gap:18px; }
+      .page-header { padding:40px 20px 28px; flex-direction:column; align-items:flex-start; gap:10px; }
+      .writing-section { padding:0 20px 48px; }
+      .thought-row { grid-template-columns:52px 1fr; gap:14px; padding:22px 0; }
+      .site-footer { padding:16px 20px; flex-direction:column; gap:6px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="/writing" class="nav-link active">Writing</a>
+    <a href="/captures" class="nav-link">Captures</a>
+  </div>
+  <a href="/" class="nav-center">0xpaf</a>
+  <div class="nav-right">
+    <a href="/about" class="nav-link">About</a>
+    <a href="/contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1 class="page-title">Writing &<br><em>thoughts</em></h1>
+  <span class="page-meta">04 essays</span>
+</div>
+
+<div class="writing-section">
+  <!--
+    LINK YOUR ARTICLES:
+    Replace href="#" with your actual URL, e.g.:
+    href="https://mirror.xyz/0xpaf/your-post"
+  -->
+
+  <a href="#" class="thought-row">
+    <span class="t-date">Jun '25</span>
+    <div class="t-body">
+      <h2 class="t-title">Why parallel execution changes liquidation design</h2>
+      <p class="t-excerpt">Most liquidation engines are sequential by design. Monad's parallel execution opens up a completely different design space.</p>
+    </div>
+    <span class="t-arrow">→</span>
+  </a>
+
+  <a href="#" class="thought-row">
+    <span class="t-date">May '25</span>
+    <div class="t-body">
+      <h2 class="t-title">Social collateral and on-chain reputation</h2>
+      <p class="t-excerpt">What if your network was your collateral? The case for reputation-based undercollateralized lending.</p>
+    </div>
+    <span class="t-arrow">→</span>
+  </a>
+
+  <a href="#" class="thought-row">
+    <span class="t-date">Apr '25</span>
+    <div class="t-body">
+      <h2 class="t-title">Building for emerging markets in DeFi</h2>
+      <p class="t-excerpt">PKR stablecoins, MENA regulatory landscape, and why the next billion users won't look like the first million.</p>
+    </div>
+    <span class="t-arrow">→</span>
+  </a>
+
+  <a href="#" class="thought-row">
+    <span class="t-date">Mar '25</span>
+    <div class="t-body">
+      <h2 class="t-title">The problem with forks</h2>
+      <p class="t-excerpt">Everyone forks Uniswap. Nobody exploits the chain they're deploying on. A rant about genuine primitives.</p>
+    </div>
+    <span class="t-arrow">→</span>
+  </a>
+</div>
+
+<div class="site-footer">
+  <div class="sf-left">
+    <a href="/" class="sf-back">← Back</a>
+    <span class="sf-copy">© 2026 Abdul Rehman</span>
+  </div>
+  
+</div>
+
+</body>
+</html>

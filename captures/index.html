@@ -4,167 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Captures — Abdul Rehman</title>
+  <meta name="description" content="Photography and captures by Abdul Rehman (0xPAF)." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg:    #EDEAE3;
-      --paper: #E8E4DC;
-      --ink:   #2C2B28;
-      --muted: #8C8A84;
-      --line:  #D4D0C8;
-    }
+    :root { --bg: #EDEAE3; --paper: #E8E4DC; --ink: #2C2B28; --muted: #8C8A84; --line: #D4D0C8; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 13px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
+    body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 13px; line-height: 1.75; -webkit-font-smoothing: antialiased; min-height: 100vh; }
 
-    /* ── NAV ── */
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 28px 48px;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-    }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 28px 48px; border-bottom: 1px solid var(--line); position: relative; }
     .nav-left, .nav-right { display: flex; gap: 36px; align-items: center; }
-    .nav-link {
-      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none; font-weight: 400; transition: color 0.15s;
-    }
+    .nav-link { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; font-weight: 400; transition: color 0.15s; }
     .nav-link:hover { color: var(--muted); }
     .nav-link.active { border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
-    .nav-center {
-      font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink);
-      text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%);
-    }
+    .nav-center { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; position: absolute; left: 50%; transform: translateX(-50%); }
 
-    /* ── PAGE HEADER ── */
-    .page-header {
-      padding: 72px 48px 48px;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-    }
-    .page-title {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(40px, 6vw, 72px);
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: var(--ink);
-    }
+    .page-header { padding: 72px 48px 48px; border-bottom: 1px solid var(--line); display: flex; align-items: flex-end; justify-content: space-between; }
+    .page-title { font-family: 'EB Garamond', serif; font-size: clamp(40px, 6vw, 72px); font-weight: 400; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
     .page-title em { font-style: italic; color: var(--muted); }
-    .page-meta {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-bottom: 8px;
-    }
+    .page-meta { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 8px; }
 
-    /* ── GRID ── */
-    .grid-section {
-      padding: 56px 48px 80px;
-    }
+    .grid-section { padding: 56px 48px 80px; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-
-    /*
-      ── HOW TO ADD PHOTOS ──
-      Inside each .photo-cell, the structure is:
-        <div class="photo-cell">
-          <div class="photo-frame">
-            <img src="YOUR_IMAGE_URL" alt="caption" />
-          </div>
-          <div class="photo-meta">
-            <span class="photo-num">01</span>
-            <span class="photo-cap">Your caption</span>
-          </div>
-        </div>
-
-      Replace the .photo-ph div with: <img src="..." alt="..." />
-      The image fills the frame automatically.
-    */
-
-    .photo-cell {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .photo-frame {
-      aspect-ratio: 3 / 4;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      overflow: hidden;
-      position: relative;
-      transition: opacity 0.2s;
-    }
-    .photo-frame:hover { opacity: 0.88; }
+    .photo-cell { display: flex; flex-direction: column; cursor: pointer; }
+    .photo-frame { aspect-ratio: 3/4; background: var(--paper); border: 1px solid var(--line); overflow: hidden; position: relative; transition: opacity 0.2s; }
+    .photo-frame:hover { opacity: 0.85; }
     .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    .photo-ph {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 10px;
-    }
-    .photo-ph span { font-size: 20px; opacity: 0.2; }
-    .photo-ph p {
-      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); opacity: 0.45;
-    }
+    .photo-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .photo-ph-num { font-family: 'EB Garamond', serif; font-size: 32px; font-weight: 400; opacity: 0.12; color: var(--ink); }
+    .photo-ph p { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); opacity: 0.4; }
 
-    .photo-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 2px 16px;
-      border-bottom: 1px solid var(--line);
-    }
-    .photo-num {
-      font-size: 10px; letter-spacing: 0.1em; color: var(--muted);
-      font-family: 'DM Sans', sans-serif;
-    }
-    .photo-cap {
-      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--ink); font-weight: 400;
-    }
+    .photo-meta { display: flex; align-items: center; justify-content: space-between; padding: 10px 2px 16px; border-bottom: 1px solid var(--line); }
+    .photo-num { font-size: 10px; letter-spacing: 0.1em; color: var(--muted); }
+    .photo-cap { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); font-weight: 400; }
 
-    /* wide cell — spans 2 cols */
-    .photo-cell.wide .photo-frame { aspect-ratio: 16 / 9; }
+    .photo-cell.wide .photo-frame { aspect-ratio: 16/9; }
     .photo-cell.wide { grid-column: span 2; }
 
-    /* ── FOOTER ── */
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 20px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    .site-footer { border-top: 1px solid var(--line); padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; }
     .sf-left { display: flex; align-items: center; gap: 12px; }
-    .sf-back {
-      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none; transition: color 0.15s;
-    }
+    .sf-back { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color 0.15s; }
     .sf-back:hover { color: var(--muted); }
     .sf-copy { font-size: 11px; color: var(--muted); }
-    .sf-tag  { font-size: 11px; color: var(--muted); }
 
-    /* ── RESPONSIVE ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .lightbox.open { display: flex; }
+
+    .lb-img-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 80vw;
+      max-height: 85vh;
+      overflow: hidden;
+    }
+    #lbImg {
+      max-width: 80vw;
+      max-height: 85vh;
+      object-fit: contain;
+      display: block;
+      border: 1px solid rgba(255,255,255,0.06);
+      cursor: zoom-in;
+      transform: scale(1);
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    #lbImg.zoomed { cursor: zoom-out; }
+
+    #lbPlaceholder {
+      width: 300px;
+      height: 400px;
+      max-width: 80vw;
+      max-height: 85vh;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .lb-ph-num { font-family: 'EB Garamond', serif; font-size: 56px; font-weight: 400; color: rgba(255,255,255,0.12); }
+    .lb-ph-text { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+    .lb-close { position: fixed; top: 24px; right: 32px; color: rgba(255,255,255,0.55); font-size: 22px; cursor: pointer; background: none; border: none; line-height: 1; transition: color 0.15s; font-family: 'DM Sans', sans-serif; font-weight: 300; z-index: 10000; }
+    .lb-close:hover { color: #fff; }
+
+    .lb-arrow { position: fixed; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgba(255,255,255,0.45); font-size: 28px; cursor: pointer; padding: 20px 28px; transition: color 0.15s; line-height: 1; z-index: 10000; }
+    .lb-arrow:hover { color: #fff; }
+    .lb-prev { left: 0; }
+    .lb-next { right: 0; }
+
+    .lb-caption { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.3); white-space: nowrap; pointer-events: none; }
+
     @media (max-width: 900px) {
       nav { padding: 20px 28px; }
       .page-header { padding: 52px 28px 36px; }
@@ -179,16 +126,16 @@
       .nav-left, .nav-right { gap: 18px; }
       .page-header { padding: 40px 20px 28px; flex-direction: column; align-items: flex-start; gap: 12px; }
       .grid-section { padding: 28px 20px 48px; }
-      .photo-grid { grid-template-columns: 1fr; gap: 2px; }
+      .photo-grid { grid-template-columns: 1fr; }
       .photo-cell.wide { grid-column: span 1; }
       .photo-cell.wide .photo-frame { aspect-ratio: 3/4; }
       .site-footer { padding: 16px 20px; flex-direction: column; gap: 6px; text-align: center; }
+      .lb-arrow { font-size: 22px; padding: 14px 18px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav>
   <div class="nav-left">
     <a href="/writing" class="nav-link">Writing</a>
@@ -201,117 +148,226 @@
   </div>
 </nav>
 
-<!-- ── PAGE HEADER ── -->
 <div class="page-header">
   <h1 class="page-title">Through<br><em>my lens</em></h1>
   <span class="page-meta">06 captures</span>
 </div>
 
-<!-- ── PHOTO GRID ── -->
 <div class="grid-section">
   <div class="photo-grid">
 
-    <!-- PHOTO 1 — Portrait -->
-    <div class="photo-cell">
-      <div class="photo-frame">
-        <!--
-          ADD PHOTO:
-          <img src="YOUR_IMAGE_URL" alt="Portrait" />
-        -->
-        <div class="photo-ph"><span>📷</span><p>add photo</p></div>
+    <div class="photo-cell" onclick="openLightbox(0)">
+      <div class="photo-frame" id="thumb0">
+        <img src="/image1.jpg" alt="Capture 01" onerror="showPh(this,1)" />
       </div>
       <div class="photo-meta">
         <span class="photo-num">01</span>
-        <span class="photo-cap">Portrait</span>
+        <span class="photo-cap">Capture I</span>
       </div>
     </div>
 
-    <!-- PHOTO 2 — City -->
-    <div class="photo-cell">
-      <div class="photo-frame">
-        <!--
-          ADD PHOTO:
-          <img src="YOUR_IMAGE_URL" alt="City" />
-        -->
-        <div class="photo-ph"><span>🌆</span><p>add photo</p></div>
+    <div class="photo-cell" onclick="openLightbox(1)">
+      <div class="photo-frame" id="thumb1">
+        <img src="/image2.jpg" alt="Capture 02" onerror="showPh(this,2)" />
       </div>
       <div class="photo-meta">
         <span class="photo-num">02</span>
-        <span class="photo-cap">City</span>
+        <span class="photo-cap">Capture II</span>
       </div>
     </div>
 
-    <!-- PHOTO 3 — Sky (wide, spans 2 cols) -->
-    <div class="photo-cell wide">
-      <div class="photo-frame">
-        <!--
-          ADD PHOTO:
-          <img src="YOUR_IMAGE_URL" alt="Sky" />
-        -->
-        <div class="photo-ph"><span>🌌</span><p>add photo</p></div>
+    <div class="photo-cell wide" onclick="openLightbox(2)">
+      <div class="photo-frame" id="thumb2">
+        <img src="/image3.jpg" alt="Capture 03" onerror="showPh(this,3)" />
       </div>
       <div class="photo-meta">
         <span class="photo-num">03</span>
-        <span class="photo-cap">Sky</span>
+        <span class="photo-cap">Capture III</span>
       </div>
     </div>
 
-    <!-- PHOTO 4 — Architecture -->
-    <div class="photo-cell">
-      <div class="photo-frame">
-        <!--
-          ADD PHOTO:
-          <img src="YOUR_IMAGE_URL" alt="Architecture" />
-        -->
-        <div class="photo-ph"><span>🏙️</span><p>add photo</p></div>
+    <div class="photo-cell" onclick="openLightbox(3)">
+      <div class="photo-frame" id="thumb3">
+        <img src="/image4.jpg" alt="Capture 04" onerror="showPh(this,4)" />
       </div>
       <div class="photo-meta">
         <span class="photo-num">04</span>
-        <span class="photo-cap">Architecture</span>
+        <span class="photo-cap">Capture IV</span>
       </div>
     </div>
 
-    <!-- PHOTO 5 — Nature -->
-    <div class="photo-cell">
-      <div class="photo-frame">
-        <!--
-          ADD PHOTO:
-          <img src="YOUR_IMAGE_URL" alt="Nature" />
-        -->
-        <div class="photo-ph"><span>🌿</span><p>add photo</p></div>
+    <div class="photo-cell" onclick="openLightbox(4)">
+      <div class="photo-frame" id="thumb4">
+        <img src="/image5.jpg" alt="Capture 05" onerror="showPh(this,5)" />
       </div>
       <div class="photo-meta">
         <span class="photo-num">05</span>
-        <span class="photo-cap">Nature</span>
+        <span class="photo-cap">Capture V</span>
       </div>
     </div>
 
-    <!-- PHOTO 6 — Moment -->
-    <div class="photo-cell">
-      <div class="photo-frame">
-        <!--
-          ADD PHOTO:
-          <img src="YOUR_IMAGE_URL" alt="Moment" />
-        -->
-        <div class="photo-ph"><span>✨</span><p>add photo</p></div>
+    <div class="photo-cell" onclick="openLightbox(5)">
+      <div class="photo-frame" id="thumb5">
+        <img src="/image6.jpg" alt="Capture 06" onerror="showPh(this,6)" />
       </div>
       <div class="photo-meta">
         <span class="photo-num">06</span>
-        <span class="photo-cap">Moment</span>
+        <span class="photo-cap">Capture VI</span>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">&#x2715;</button>
+  <button class="lb-arrow lb-prev" onclick="nav(-1)">&#8592;</button>
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt="" style="display:none;" onclick="toggleZoom()" />
+    <div id="lbPlaceholder">
+      <span class="lb-ph-num" id="lbPhNum">01</span>
+      <span class="lb-ph-text">add photo</span>
+    </div>
+  </div>
+  <button class="lb-arrow lb-next" onclick="nav(1)">&#8594;</button>
+  <span class="lb-caption" id="lbCaption"></span>
+</div>
+
 <div class="site-footer">
   <div class="sf-left">
     <a href="/" class="sf-back">← Back</a>
     <span class="sf-copy">© 2026 Abdul Rehman</span>
   </div>
-  
 </div>
+
+<script>
+  var images = [
+    { src: '/image1.jpg', cap: 'Capture I — 01 / 06' },
+    { src: '/image2.jpg', cap: 'Capture II — 02 / 06' },
+    { src: '/image3.jpg', cap: 'Capture III — 03 / 06' },
+    { src: '/image4.jpg', cap: 'Capture IV — 04 / 06' },
+    { src: '/image5.jpg', cap: 'Capture V — 05 / 06' },
+    { src: '/image6.jpg', cap: 'Capture VI — 06 / 06' }
+  ];
+
+  var current = 0;
+  var zoomScale = 1;
+  var pinchStart = 0;
+  var pinchScaleStart = 1;
+
+  function showPh(imgEl, num) {
+    var frame = imgEl.parentElement;
+    var n = num < 10 ? '0' + num : '' + num;
+    frame.innerHTML = '<div class="photo-ph"><span class="photo-ph-num">' + n + '</span><p>add photo</p></div>';
+  }
+
+  function openLightbox(index) {
+    current = index;
+    zoomScale = 1;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    showImage();
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+    zoomScale = 1;
+    var img = document.getElementById('lbImg');
+    img.style.transform = 'scale(1)';
+    img.classList.remove('zoomed');
+  }
+
+  function nav(dir) {
+    current = (current + dir + images.length) % images.length;
+    zoomScale = 1;
+    var img = document.getElementById('lbImg');
+    img.style.transform = 'scale(1)';
+    img.classList.remove('zoomed');
+    showImage();
+  }
+
+  function showImage() {
+    var data = images[current];
+    var lbImg = document.getElementById('lbImg');
+    var ph = document.getElementById('lbPlaceholder');
+    var cap = document.getElementById('lbCaption');
+    var phNum = document.getElementById('lbPhNum');
+    var padNum = (current + 1) < 10 ? '0' + (current + 1) : '' + (current + 1);
+
+    cap.textContent = data.cap;
+    phNum.textContent = padNum;
+    lbImg.style.display = 'none';
+    ph.style.display = 'flex';
+
+    var testImg = new Image();
+    testImg.onload = function() {
+      lbImg.src = data.src;
+      lbImg.style.display = 'block';
+      ph.style.display = 'none';
+    };
+    testImg.onerror = function() {
+      lbImg.style.display = 'none';
+      ph.style.display = 'flex';
+    };
+    testImg.src = data.src;
+  }
+
+  function toggleZoom() {
+    var img = document.getElementById('lbImg');
+    if (zoomScale > 1) {
+      zoomScale = 1;
+      img.style.transform = 'scale(1)';
+      img.classList.remove('zoomed');
+    } else {
+      zoomScale = 2.5;
+      img.style.transform = 'scale(2.5)';
+      img.classList.add('zoomed');
+    }
+  }
+
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') nav(-1);
+    if (e.key === 'ArrowRight') nav(1);
+  });
+
+  document.getElementById('lightbox').addEventListener('wheel', function(e) {
+    e.preventDefault();
+    var img = document.getElementById('lbImg');
+    if (img.style.display === 'none') return;
+    var delta = e.deltaY < 0 ? 0.25 : -0.25;
+    zoomScale = Math.min(4, Math.max(1, zoomScale + delta));
+    img.style.transform = 'scale(' + zoomScale + ')';
+    if (zoomScale > 1) img.classList.add('zoomed');
+    else img.classList.remove('zoomed');
+  }, { passive: false });
+
+  document.getElementById('lightbox').addEventListener('touchstart', function(e) {
+    if (e.touches.length === 2) {
+      pinchStart = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      pinchScaleStart = zoomScale;
+    }
+  }, { passive: true });
+
+  document.getElementById('lightbox').addEventListener('touchmove', function(e) {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      var img = document.getElementById('lbImg');
+      if (img.style.display === 'none') return;
+      var dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+      zoomScale = Math.min(4, Math.max(1, pinchScaleStart * (dist / pinchStart)));
+      img.style.transform = 'scale(' + zoomScale + ')';
+      if (zoomScale > 1) img.classList.add('zoomed');
+      else img.classList.remove('zoomed');
+    }
+  }, { passive: false });
+</script>
 
 </body>
 </html>

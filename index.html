@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abdul Rehman</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-      --bg:    #EDEAE3;
+      --bg: #EDEAE3;
       --paper: #E8E4DC;
-      --ink:   #2C2B28;
+      --ink: #2C2B28;
       --muted: #8C8A84;
-      --line:  #D4D0C8;
+      --line: #D4D0C8;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--bg);
       color: var(--ink);
@@ -36,7 +50,14 @@
       border-bottom: 1px solid var(--line);
       position: relative;
     }
-    .nav-left, .nav-right { display: flex; gap: 36px; align-items: center; }
+
+    .nav-left,
+    .nav-right {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
     .nav-link {
       font-size: 11px;
       letter-spacing: 0.08em;
@@ -46,7 +67,11 @@
       font-weight: 400;
       transition: color 0.15s;
     }
-    .nav-link:hover { color: var(--muted); }
+
+    .nav-link:hover {
+      color: var(--muted);
+    }
+
     .nav-center {
       font-family: 'EB Garamond', serif;
       font-size: 22px;
@@ -62,7 +87,7 @@
 
     .content {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 280px 1fr 1fr;
       gap: 0;
       padding: 80px 48px 60px;
       min-height: calc(100vh - 65px - 160px);
@@ -77,6 +102,7 @@
       font-weight: 400;
       margin-bottom: 28px;
     }
+
     .col-left p {
       font-size: 13px;
       font-weight: 300;
@@ -91,6 +117,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .center-text {
       font-size: 13px;
       font-weight: 300;
@@ -99,7 +126,13 @@
       margin-bottom: 28px;
       max-width: 360px;
     }
-    .center-photo { width: 220px; margin: 48px auto 0; display: block; }
+
+    .center-photo {
+      width: 220px;
+      margin: 48px auto 0;
+      display: block;
+    }
+
     .center-photo-frame {
       width: 220px;
       height: 290px;
@@ -109,7 +142,15 @@
       align-items: center;
       justify-content: center;
     }
-    .center-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .center-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      image-rendering: high-quality;
+    }
+
     .center-caption {
       text-align: center;
       font-size: 10px;
@@ -120,6 +161,61 @@
       font-weight: 400;
     }
 
+    .col-right {
+      padding-left: 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-right-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .tools-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tool-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--ink);
+      transition: color 0.15s;
+    }
+
+    .tool-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tool-item:hover {
+      color: var(--muted);
+    }
+
+    .tool-item-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .tool-item-arr {
+      font-size: 13px;
+      color: var(--line);
+      transition: color 0.15s;
+    }
+
+    .tool-item:hover .tool-item-arr {
+      color: var(--muted);
+    }
+
     .bottom-strip {
       display: flex;
       align-items: flex-end;
@@ -127,7 +223,13 @@
       padding: 0 48px 48px;
       position: relative;
     }
-    .bottom-left { display: flex; flex-direction: column; gap: 8px; }
+
+    .bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
     .x-logo-link {
       display: flex;
       align-items: center;
@@ -136,9 +238,23 @@
       color: var(--ink);
       transition: color 0.15s;
     }
-    .x-logo-link:hover { color: var(--muted); }
-    .x-handle { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
-    .bottom-left-links { display: flex; flex-direction: column; gap: 5px; }
+
+    .x-logo-link:hover {
+      color: var(--muted);
+    }
+
+    .x-handle {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .bottom-left-links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
     .bottom-left-links a {
       font-size: 11px;
       letter-spacing: 0.06em;
@@ -146,13 +262,18 @@
       text-decoration: none;
       transition: color 0.15s;
     }
-    .bottom-left-links a:hover { color: var(--ink); }
+
+    .bottom-left-links a:hover {
+      color: var(--ink);
+    }
+
     .bottom-center {
       text-align: center;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
     }
+
     .bottom-tagline {
       font-size: 10px;
       letter-spacing: 0.16em;
@@ -161,6 +282,7 @@
       font-weight: 400;
       line-height: 1.6;
     }
+
     .bottom-right {
       text-align: right;
       display: flex;
@@ -168,6 +290,7 @@
       gap: 6px;
       align-items: flex-end;
     }
+
     .bottom-right a {
       font-size: 11px;
       letter-spacing: 0.08em;
@@ -180,9 +303,16 @@
       align-items: center;
       gap: 6px;
     }
-    .bottom-right a:hover { color: var(--muted); }
 
-    .page-divider { height: 1px; background: var(--line); margin: 0 48px; }
+    .bottom-right a:hover {
+      color: var(--muted);
+    }
+
+    .page-divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0 48px;
+    }
 
     .site-footer {
       border-top: 1px solid var(--line);
@@ -191,100 +321,193 @@
       align-items: center;
       justify-content: space-between;
     }
-    .sf-copy { font-size: 11px; letter-spacing: 0.06em; color: var(--muted); }
+
+    .sf-copy {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
 
     @media (max-width: 900px) {
-      nav { padding: 20px 28px; }
-      .content { grid-template-columns: 1fr; padding: 48px 28px 40px; }
-      .col-center { padding: 0; }
-      .center-photo { margin: 32px 0 0; }
-      .bottom-strip { padding: 0 28px 40px; flex-direction: column; gap: 28px; align-items: flex-start; }
-      .bottom-center { position: static; transform: none; }
-      .page-divider { margin: 0 28px; }
-      .site-footer { padding: 18px 28px; flex-direction: column; gap: 6px; text-align: center; }
+      nav {
+        padding: 20px 28px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+        padding: 48px 28px 40px;
+      }
+
+      .col-center {
+        padding: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+      }
+
+      .col-right {
+        padding-left: 0;
+      }
+
+      .center-photo {
+        margin: 32px 0 0;
+      }
+
+      .bottom-strip {
+        padding: 0 28px 40px;
+        flex-direction: column;
+        gap: 28px;
+        align-items: flex-start;
+      }
+
+      .bottom-center {
+        position: static;
+        transform: none;
+      }
+
+      .page-divider {
+        margin: 0 28px;
+      }
+
+      .site-footer {
+        padding: 18px 28px;
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+      }
     }
+
     @media (max-width: 560px) {
-      nav { padding: 16px 20px; }
-      .nav-center { font-size: 17px; }
-      .nav-left, .nav-right { gap: 18px; }
-      .content { padding: 40px 20px 32px; }
-      .bottom-strip { padding: 0 20px 36px; }
-      .page-divider { margin: 0 20px; }
-      .site-footer { padding: 16px 20px; }
+      nav {
+        padding: 16px 20px;
+      }
+
+      .nav-center {
+        font-size: 17px;
+      }
+
+      .nav-left,
+      .nav-right {
+        gap: 18px;
+      }
+
+      .content {
+        padding: 40px 20px 32px;
+      }
+
+      .bottom-strip {
+        padding: 0 20px 36px;
+      }
+
+      .page-divider {
+        margin: 0 20px;
+      }
+
+      .site-footer {
+        padding: 16px 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="nav-left">
-    <a href="/writing" class="nav-link">Writing</a>
-    <a href="/captures" class="nav-link">Captures</a>
-  </div>
-  <a href="/" class="nav-center">0xpaf</a>
-  <div class="nav-right">
-    <a href="/about" class="nav-link">About</a>
-    <a href="/contact" class="nav-link">Contact</a>
-  </div>
-</nav>
-
-<div class="content">
-
-  <div class="col-left">
-    <p class="col-label">Abdul Rehman</p>
-    <p>Based in Pakistan. Studying Computer Science. Crypto since childhood&nbsp;; ) — driven by curiosity and a desire to understand how things work.</p>
-    <p>Community Lead for Pakistan at Monad, MegaETH, and Morph. Love reading, writing, and chasing ideas wherever they go.</p>
-  </div>
-
-  <div class="col-center">
-    <p class="center-text">Opportunities are limitless everywhere — we just need to explore. Part of the communities building the infrastructure that actually matters: Monad, MegaETH, Morph.</p>
-    <p class="center-text">Builder in Web3 🫪 — always learning, always curious.</p>
-    <div class="center-photo">
-      <div class="center-photo-frame">
-        <img src="/image.jpg" alt="Abdul Rehman" />
-      </div>
-      <p class="center-caption">Abdul Rehman · @0xpaf</p>
+  <nav>
+    <div class="nav-left">
+      <a href="/writing" class="nav-link">Writing</a>
+      <a href="/captures" class="nav-link">Captures</a>
     </div>
-  </div>
+    <a href="/" class="nav-center">0xpaf</a>
+    <div class="nav-right">
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
 
-</div>
+  <div class="content">
 
-<div style="position:relative;">
-  <div class="bottom-strip">
+    <div class="col-left">
+      <p class="col-label">Abdul Rehman</p>
+      <p>Based in Pakistan. Studying Computer Science. Crypto since childhood&nbsp;; ) driven by curiosity and a
+        desire to understand how things work.</p>
+      <p>Community Lead for Pakistan at Monad, MegaETH, and Morph. Love reading, writing, and chasing ideas wherever
+        they go.</p>
+    </div>
 
-    <div class="bottom-left">
-      <a href="https://twitter.com/0xpaf" class="x-logo-link" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-        <span class="x-handle">@0xpaf</span>
-      </a>
-      <div class="bottom-left-links">
-        <a href="/writing">/writing</a>
-        <a href="/captures">/captures</a>
+    <div class="col-center">
+      <p class="center-text">Opportunities are limitless everywhere — we just need to explore. Part of the communities
+        building the infrastructure that actually matters: Monad, MegaETH, Morph.</p>
+
+      <div class="center-photo">
+        <div class="center-photo-frame">
+          <img src="/image.jpg" alt="Abdul Rehman" />
+        </div>
+        <p class="center-caption">Abdul Rehman · @0xpaf</p>
       </div>
     </div>
 
-    <div class="bottom-center">
-      <p class="bottom-tagline">Decentralized infrastructure<br>for the next era of finance</p>
-    </div>
-
-    <div class="bottom-right">
-      <a href="https://github.com/PAFRehman" target="_blank" rel="noopener">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-        GitHub ↗
-      </a>
-      <a href="/contact">Contact ↗</a>
+    <div class="col-right">
+      <p class="col-right-label">Tools I Built</p>
+      <div class="tools-list">
+        <a href="https://bulkvalidator.netlify.app/" class="tool-item" target="_blank" rel="noopener">
+          <span class="tool-item-name">BulkTrade Validator Stats</span>
+          <span class="tool-item-arr">&#8599;</span>
+        </a>
+        <a href="https://bulkcards.vercel.app/" class="tool-item" target="_blank" rel="noopener">
+          <span class="tool-item-name">BulkCards</span>
+          <span class="tool-item-arr">&#8599;</span>
+        </a>
+        <a href="https://bulkacademy.netlify.app/" class="tool-item" target="_blank" rel="noopener">
+          <span class="tool-item-name">BulkAcademy</span>
+          <span class="tool-item-arr">&#8599;</span>
+        </a>
+      </div>
     </div>
 
   </div>
-</div>
 
-<div class="page-divider"></div>
+  <div style="position:relative;">
+    <div class="bottom-strip">
 
-<div class="site-footer">
-  <span class="sf-copy">© 2026 Abdul Rehman</span>
-</div>
+      <div class="bottom-left">
+        <a href="https://twitter.com/0xpaf" class="x-logo-link" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+          <span class="x-handle">@0xpaf</span>
+        </a>
+        <div class="bottom-left-links">
+          <a href="/writing">/writing</a>
+          <a href="/captures">/captures</a>
+        </div>
+      </div>
+
+      <div class="bottom-center">
+        <p class="bottom-tagline">Decentralized infrastructure<br>for the next era of finance</p>
+      </div>
+
+      <div class="bottom-right">
+        <a href="https://github.com/PAFRehman" target="_blank" rel="noopener">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+          </svg>
+          GitHub ↗
+        </a>
+        <a href="/contact">Contact ↗</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <div class="site-footer">
+    <span class="sf-copy">© 2026 Abdul Rehman</span>
+  </div>
 
 </body>
+
 </html>

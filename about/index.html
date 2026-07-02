@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Abdul Rehman</title>
+  <meta name="description" content="About Abdul Rehman (0xPAF) — Web3 Community Lead based in Pakistan." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
@@ -39,7 +40,7 @@
       margin-bottom:24px;
       max-width:360px;
     }
-    .about-photo-frame img { width:100%; height:100%; object-fit:cover; display:block; }
+    .about-photo-frame img { width:100%; height:100%; object-fit:cover; display:block; image-rendering:high-quality; -webkit-backface-visibility:hidden; backface-visibility:hidden; }
 
     .about-photo-caption { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
 
@@ -49,6 +50,24 @@
     .about-name em { font-style:italic; color:var(--muted); }
     .about-body p { font-size:14px; font-weight:300; color:var(--ink); line-height:1.9; margin-bottom:20px; max-width:480px; }
     .about-body p:last-child { margin-bottom:0; }
+
+    .about-projects {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .about-projects-label {
+      font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; font-weight:400;
+    }
+    .projects-grid {
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .proj-tag {
+      font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink);
+      text-decoration:none; border:1px solid var(--line); padding:5px 12px;
+      transition:border-color 0.15s, color 0.15s;
+    }
+    .proj-tag:hover { border-color:var(--ink); }
 
     .site-footer { border-top:1px solid var(--line); padding:20px 48px; display:flex; align-items:center; justify-content:space-between; }
     .sf-left { display:flex; align-items:center; gap:12px; }
@@ -94,7 +113,7 @@
       <div class="about-photo-frame">
         <img src="/image.jpg" alt="Abdul Rehman" />
       </div>
-      <p class="about-photo-caption">Abdul Rehman · Pakistan · 2026</p>
+      <p class="about-photo-caption">Abdul Rehman &nbsp;·&nbsp; 0xPAF</p>
     </div>
   </div>
 
@@ -102,10 +121,23 @@
     <p class="about-eyebrow">About</p>
     <h1 class="about-name">Abdul<br><em>Rehman</em></h1>
     <div class="about-body">
-      <p>Based in Pakistan. Studying Computer Science. Crypto since childhood&nbsp;; ) — driven by curiosity and a desire to understand how things work.</p>
-      <p>I love reading, writing, and learning — always chasing ideas. The kind of person who pulls a thread until the whole sweater unravels, just to see what's inside.</p>
-      <p>Working as <strong>Community Lead for Pakistan</strong> at Monad, MegaETH, and Morph. More than a role — I genuinely love being part of these communities and what they're building.</p>
-      <p><em>Opportunities are limitless everywhere. We just need to explore.</em></p>
+      <p>Based in Pakistan. Joined Web3 when I was 14 driven by curiosity and a desire to understand how this technology could reshape the future. Aptos was one of the first ecosystems I explored, which later led me into the Sui ecosystem.</p>
+      <p>Over the years I worked as a CM across 50+ projects including <a href="https://x.com/suivivors" target="_blank" rel="noopener" style="color:inherit;">Suivivors</a>, <a href="https://www.twitter.com/galactic_apes" target="_blank" rel="noopener" style="color:inherit;">GalacticApes</a>, <a href="https://twitter.com/SuiOkayBears" target="_blank" rel="noopener" style="color:inherit;">Sui Bears</a>, and many others. Currently pursuing a Bachelor's in Computer Science.</p>
+      <p>I spend most of my time learning, reading, writing, researching, and connecting with people who share the same passion. Alongside that, I'm also a Web3 artist who enjoys turning ideas into creative work.</p>
+      <p>Currently community lead for Pakistan at <a href="https://x.com/monad_xyz" target="_blank" rel="noopener" style="color:inherit;">Monad</a>, <a href="https://x.com/megaeth_labs" target="_blank" rel="noopener" style="color:inherit;">MegaETH</a>, and <a href="https://x.com/MorphNetwork" target="_blank" rel="noopener" style="color:inherit;">Morph</a>, helping grow local communities, support builders, and contribute to the infrastructure that truly matters. Was a pleasure to host the Monad IRL event for the Pakistan community.</p>
+      <p><em>I believe great ecosystems are built by the people behind them, and I'm grateful to be part of that journey.</em></p>
+    </div>
+
+    <div class="about-projects">
+      <p class="about-projects-label">Projects</p>
+      <div class="projects-grid">
+        <a href="https://x.com/megaeth" class="proj-tag" target="_blank" rel="noopener">MegaETH</a>
+        <a href="https://x.com/monad_xyz" class="proj-tag" target="_blank" rel="noopener">Monad</a>
+        <a href="https://x.com/MorphNetwork" class="proj-tag" target="_blank" rel="noopener">Morph</a>
+        <a href="https://x.com/suivivors" class="proj-tag" target="_blank" rel="noopener">Suivivors</a>
+        <a href="https://www.twitter.com/galactic_apes" class="proj-tag" target="_blank" rel="noopener">GalacticApes</a>
+        <a href="https://twitter.com/SuiOkayBears" class="proj-tag" target="_blank" rel="noopener">Sui Bears</a>
+      </div>
     </div>
   </div>
 
